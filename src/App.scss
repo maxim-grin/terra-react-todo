@@ -1,0 +1,102 @@
+$primary: #98d0f0;
+$grey: #cdcdcd;
+$secondary: #1dd2af;
+
+%reset {
+	margin: 0;
+	padding: 0;
+	border: none;
+	outline: none;
+	background: transparent;
+}
+
+%transition {
+	transition: all 0.2s ease;
+	-webkit-transition: all 0.2s ease;
+}
+
+body {
+	background: #f1f1f1;
+	margin-top: 2rem;
+}
+
+.tasker {
+	max-width: 400px;
+	margin: 0 auto;
+
+	ul {
+		@extend %reset;
+		background: #fff;
+	}
+
+	li,
+	button,
+	input {
+		@extend %reset;
+		font: 18px/1.25em Helvetica, Arial, Sans-serif;
+	}
+	.todo-input {
+		padding: 14px 0 14px 0;
+		background: rgb(226, 226, 226);
+		width: 100%;
+	}
+}
+
+.tasker-header {
+	display: inline-flex;
+	background: $primary;
+	justify-content: space-between;
+	width: 100%;
+	padding: 14px 0 14px 0;
+
+	span {
+		font-size: 20px;
+		font-weight: bold;
+		padding-left: 10px;
+	}
+
+	label {
+		padding-right: 10px;
+	}
+
+	.toggle-filter {
+		margin-right: 5px;
+	}
+}
+
+.tasker-body {
+	.task {
+		display: block;
+		position: relative;
+		padding: 14px 40px 14px 14px;
+		border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+		&:last-child {
+			border-bottom: none;
+		}
+
+		&:hover > button {
+			opacity: 1;
+		}
+
+		&.completed {
+			color: $grey;
+			text-decoration: line-through;
+		}
+
+		input {
+			margin-right: 10px;
+		}
+
+		button {
+			@extend %transition;
+			color: crimson;
+			margin: 14px;
+			position: absolute;
+			top: 0;
+			right: 0;
+			&:hover {
+				color: #ed1c24;
+			}
+		}
+	}
+}
