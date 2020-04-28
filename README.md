@@ -1,3 +1,12 @@
+# Basic TODO App Built With React and Redux
+
+## Local deployment steps
+
+1) Run `npm install` to install all the dependencies
+2) Run `npm run build` to build the deployment package
+3) Run `npm run serve` to start the local node.js server on port 8080
+4) Access the todo app on this url in your browser https://localhost:8080
+
 ## Available Scripts
 
 In the project directory, you can run:
