@@ -1,15 +1,13 @@
-const static = require('node-static');
+import staticServer from 'node-static';
 
-//
-// Create a node-static server instance to serve the './public' folder
-//
-const file = new static.Server('./build');
+/*
+ * Create a node-static server instance to serve the './build' folder
+ */
+const file = new staticServer.Server('./build');
 
-require('http').createServer(function (request, response) {
-    request.addListener('end', function () {
-        //
-        // Serve files!
-        //
-        file.serve(request, response);
-    }).resume();
+require('http').createServer((request, response) => {
+  request.addListener('end', () => {
+    // Serve files!
+    file.serve(request, response);
+  }).resume();
 }).listen(8080);

@@ -15,6 +15,9 @@ export const App = ({
   deleteTodo,
   toggleCompletedFilter,
 }) => {
+  /**
+   * Calculating the count of active (non-completed) todos
+   */
   const activeCount = () => {
     let activeTodos = 0;
     if (todos && todos.length > 0) {
@@ -23,6 +26,9 @@ export const App = ({
     return activeTodos;
   };
 
+  /**
+   * Filtering out completed todos if hideCompleted checkbox is checked
+   */
   const filterTodos = () => {
     let filtered = [];
     if (todos && todos.length > 0) {
@@ -63,11 +69,13 @@ App.propTypes = {
   toggleCompletedFilter: PropTypes.func.isRequired,
 };
 
+// Mapping app state to props
 const mapStateToProps = (state) => ({
   todos: state.todos,
   hideCompleted: state.hideCompleted,
 });
 
+// Mapping dispatched methods to props
 const mapDispatchToProps = (dispatch) => ({
   addTodo: (text) => {
     if (text) {
@@ -88,4 +96,5 @@ const mapDispatchToProps = (dispatch) => ({
   },
 });
 
+// connecting the app to redux
 export default connect(mapStateToProps, mapDispatchToProps)(App);

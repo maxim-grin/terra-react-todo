@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import App from './App';
 import configureStore from './store/configureStore';
 
+// configuring redux store
 const store = configureStore();
 
 render(
